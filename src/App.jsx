@@ -294,40 +294,68 @@ const App = () => {
             </Card>
           )}
 {activeTab === 'massager' && (
-  <Card className="w-full max-w-5xl mx-auto p-6">
+  <Card className="w-full max-w-5xl mx-auto p-6 shadow-xl rounded-2xl">
     <CardHeader>
-      <CardTitle className="text-xl md:text-2xl lg:text-3xl">3D Scalp Massager</CardTitle>
+      <CardTitle className="text-xl md:text-2xl lg:text-3xl text-center">
+        3D Scalp Massager
+      </CardTitle>
     </CardHeader>
     <CardContent>
       {/* Scalp Image with Interactive Overlays */}
-      <div className="w-full h-[400px] md:h-[500px] bg-gray-100 rounded-lg shadow-lg relative mx-auto">
+      <div className="relative w-full h-auto md:h-[500px] bg-gray-100 rounded-lg shadow-lg flex justify-center items-center mx-auto">
         <img
-          src="/scalp.png" // Path to your single scalp image
+          src="/scalp.png"
           alt="Scalp"
-          className="w-full h-full object-cover rounded-lg"
+          className="w-[90%] md:w-[80%] h-auto object-cover rounded-lg"
         />
 
         {/* Overlay Buttons for Scalp Positions */}
         <div className="absolute inset-0 flex flex-wrap justify-center items-center gap-6 md:gap-8 p-4">
-          {/* Buttons for Scalp Areas */}
-          {['front', 'back', 'left', 'right'].map((area) => (
-            <button
-              key={area}
-              onClick={() => setTargetArea(area)}
-              className={`w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-all ${
-                targetArea === area ? 'ring-4 ring-indigo-500' : ''
-              }`}
-            >
-              {area.charAt(0).toUpperCase() + area.slice(1)}
-            </button>
-          ))}
+          {/* Top (Front) */}
+          <button
+            onClick={() => setTargetArea('front')}
+            className={`w-16 h-16 md:w-20 md:h-20 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-all ${
+              targetArea === 'front' ? 'ring-4 ring-indigo-500' : ''
+            }`}
+          >
+            Front
+          </button>
+
+          {/* Bottom (Back) */}
+          <button
+            onClick={() => setTargetArea('back')}
+            className={`w-16 h-16 md:w-20 md:h-20 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-all ${
+              targetArea === 'back' ? 'ring-4 ring-indigo-500' : ''
+            }`}
+          >
+            Back
+          </button>
+
+          {/* Left */}
+          <button
+            onClick={() => setTargetArea('left')}
+            className={`w-16 h-16 md:w-20 md:h-20 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-all ${
+              targetArea === 'left' ? 'ring-4 ring-indigo-500' : ''
+            }`}
+          >
+            Left
+          </button>
+
+          {/* Right */}
+          <button
+            onClick={() => setTargetArea('right')}
+            className={`w-16 h-16 md:w-20 md:h-20 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-all ${
+              targetArea === 'right' ? 'ring-4 ring-indigo-500' : ''
+            }`}
+          >
+            Right
+          </button>
         </div>
       </div>
 
       {/* Massage Controls */}
-      <div className="mt-8 space-y-6">
+      <div className="mt-6 space-y-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Start/Pause Massage Button */}
           <button
             onClick={toggleMassage}
             className="flex items-center space-x-3 bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-all text-lg"
@@ -336,7 +364,6 @@ const App = () => {
             <span>{isMassaging ? 'Pause Massage' : 'Start Massage'}</span>
           </button>
 
-          {/* Apply Serum Button */}
           <button
             onClick={applySerum}
             disabled={serumApplied}
@@ -347,10 +374,8 @@ const App = () => {
           </button>
         </div>
 
-        {/* Form Controls for Customization */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {/* Massage Type Selection */}
-          <div className="space-y-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="space-y-2">
             <label className="text-lg font-medium text-gray-700">Massage Type</label>
             <select
               value={massageType}
@@ -363,8 +388,7 @@ const App = () => {
             </select>
           </div>
 
-          {/* Massage Time Input */}
-          <div className="space-y-3">
+          <div className="space-y-2">
             <label className="text-lg font-medium text-gray-700">Massage Time (mins)</label>
             <input
               type="number"
@@ -374,8 +398,7 @@ const App = () => {
             />
           </div>
 
-          {/* Target Area Selection */}
-          <div className="space-y-3">
+          <div className="space-y-2">
             <label className="text-lg font-medium text-gray-700">Target Area</label>
             <select
               value={targetArea}
@@ -394,7 +417,6 @@ const App = () => {
     </CardContent>
   </Card>
 )}
-
 
 
           {activeTab === 'scan' && (
