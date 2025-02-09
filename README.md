@@ -1,4 +1,4 @@
-# Wearable AI-Powered Men's Hair Care Device
+# **{ScalpFelix}** Wearable AI-Powered Men's Hair Care Device
 
 ## Overview
 This project is a next-generation **AI-powered wearable men's hair care device**, designed to function as both a **scalp massager** and **serum applicator**. It provides a customizable, hands-free hair care experience with **zero hair breakage**, featuring **expandable massage nodes, smart scalp mapping, and AI-based hair analysis** for effective serum absorption and personalized scalp treatment.
