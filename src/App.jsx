@@ -294,9 +294,9 @@ const App = () => {
             </Card>
           )}
 {activeTab === 'massager' && (
-  <Card className="w-full max-w-5xl mx-auto p-6 shadow-xl rounded-2xl">
+  <Card className="w-full max-w-7xl mx-auto p-8 shadow-2xl rounded-2xl">
     <CardHeader>
-      <CardTitle className="text-xl md:text-2xl lg:text-3xl text-center">
+      <CardTitle className="text-2xl md:text-3xl lg:text-4xl text-center font-semibold">
         3D Scalp Massager
       </CardTitle>
     </CardHeader>
@@ -306,7 +306,7 @@ const App = () => {
         <img
           src="/scalp.png"
           alt="Scalp"
-          className="w-[90%] md:w-[80%] h-auto object-cover rounded-lg"
+          className="w-full md:w-[85%] lg:w-[70%] h-auto object-cover rounded-lg"
         />
 
         {/* Overlay Buttons for Scalp Positions */}
@@ -314,7 +314,7 @@ const App = () => {
           {/* Top (Front) */}
           <button
             onClick={() => setTargetArea('front')}
-            className={`w-16 h-16 md:w-20 md:h-20 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-all ${
+            className={`w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-all ${
               targetArea === 'front' ? 'ring-4 ring-indigo-500' : ''
             }`}
           >
@@ -324,7 +324,7 @@ const App = () => {
           {/* Bottom (Back) */}
           <button
             onClick={() => setTargetArea('back')}
-            className={`w-16 h-16 md:w-20 md:h-20 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-all ${
+            className={`w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-all ${
               targetArea === 'back' ? 'ring-4 ring-indigo-500' : ''
             }`}
           >
@@ -334,7 +334,7 @@ const App = () => {
           {/* Left */}
           <button
             onClick={() => setTargetArea('left')}
-            className={`w-16 h-16 md:w-20 md:h-20 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-all ${
+            className={`w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-all ${
               targetArea === 'left' ? 'ring-4 ring-indigo-500' : ''
             }`}
           >
@@ -344,7 +344,7 @@ const App = () => {
           {/* Right */}
           <button
             onClick={() => setTargetArea('right')}
-            className={`w-16 h-16 md:w-20 md:h-20 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-all ${
+            className={`w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-all ${
               targetArea === 'right' ? 'ring-4 ring-indigo-500' : ''
             }`}
           >
@@ -354,7 +354,7 @@ const App = () => {
       </div>
 
       {/* Massage Controls */}
-      <div className="mt-6 space-y-6">
+      <div className="mt-8 space-y-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <button
             onClick={toggleMassage}
