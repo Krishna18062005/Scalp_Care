@@ -260,7 +260,7 @@ const App = () => {
                 <ol className="list-decimal ml-6 mt-2">
                   <li>Ensure the device is fully charged.</li>
                   <li>Adjust the fit for comfort.</li>
-                  <li>Choose the desired massage & serum mode.</li>
+                  <li>Choose the desired massage or serum mode.</li>
                   <li>Turn on the device using the touch controls or app.</li>
                   <li>Enjoy the session as per the timer settings.</li>
                   <li>Clean the device after use for hygiene.</li>
@@ -282,7 +282,7 @@ const App = () => {
                   <li>USB-C Fast Charging Module</li>
                   <li>Bluetooth & Cloud Connectivity Module</li>
                   <li>Serum Dispensing System</li>
-                  <li>Temperature Control Elements</li>
+                  
                 </ul>
               </CardContent>
             </Card>
