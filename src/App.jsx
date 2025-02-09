@@ -295,7 +295,7 @@ const App = () => {
           )}
 {activeTab === 'massager' && (
   <div className="w-full flex justify-center">
-    <Card className="max-w-[1400px] w-full min-h-[800px] p-8 shadow-xl bg-white">
+    <Card className="w-full max-w-[1400px] min-h-[800px] p-8 shadow-xl bg-white">
       <CardHeader>
         <CardTitle className="text-3xl font-bold">3D Scalp Massager</CardTitle>
       </CardHeader>
@@ -389,7 +389,6 @@ const App = () => {
     </Card>
   </div>
 )}
-
 
 
           {activeTab === 'scan' && (
