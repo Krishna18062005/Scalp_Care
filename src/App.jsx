@@ -293,15 +293,14 @@ const App = () => {
               </CardContent>
             </Card>
           )}
-
 {activeTab === 'massager' && (
-  <Card>
+  <Card className="w-full max-w-5xl mx-auto p-6">
     <CardHeader>
-      <CardTitle>3D Scalp Massager</CardTitle>
+      <CardTitle className="text-xl md:text-2xl lg:text-3xl">3D Scalp Massager</CardTitle>
     </CardHeader>
     <CardContent>
       {/* Scalp Image with Interactive Overlays */}
-      <div className="w-full max-w-3xl mx-auto h-[500px] bg-gray-100 rounded-lg shadow-md relative">
+      <div className="w-full h-[400px] md:h-[500px] bg-gray-100 rounded-lg shadow-lg relative mx-auto">
         <img
           src="/scalp.png" // Path to your single scalp image
           alt="Scalp"
@@ -309,77 +308,54 @@ const App = () => {
         />
 
         {/* Overlay Buttons for Scalp Positions */}
-        <div className="absolute inset-0 flex flex-wrap justify-center items-center gap-4 p-4">
-          {/* Top (Front) */}
-          <button
-            onClick={() => setTargetArea('front')}
-            className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-all ${
-              targetArea === 'front' ? 'ring-2 ring-offset-2 ring-indigo-500' : ''
-            }`}
-          >
-            Front
-          </button>
-
-          {/* Bottom (Back) */}
-          <button
-            onClick={() => setTargetArea('back')}
-            className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-all ${
-              targetArea === 'back' ? 'ring-2 ring-offset-2 ring-indigo-500' : ''
-            }`}
-          >
-            Back
-          </button>
-
-          {/* Left */}
-          <button
-            onClick={() => setTargetArea('left')}
-            className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-all ${
-              targetArea === 'left' ? 'ring-2 ring-offset-2 ring-indigo-500' : ''
-            }`}
-          >
-            Left
-          </button>
-
-          {/* Right */}
-          <button
-            onClick={() => setTargetArea('right')}
-            className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-all ${
-              targetArea === 'right' ? 'ring-2 ring-offset-2 ring-indigo-500' : ''
-            }`}
-          >
-            Right
-          </button>
+        <div className="absolute inset-0 flex flex-wrap justify-center items-center gap-6 md:gap-8 p-4">
+          {/* Buttons for Scalp Areas */}
+          {['front', 'back', 'left', 'right'].map((area) => (
+            <button
+              key={area}
+              onClick={() => setTargetArea(area)}
+              className={`w-14 h-14 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-all ${
+                targetArea === area ? 'ring-4 ring-indigo-500' : ''
+              }`}
+            >
+              {area.charAt(0).toUpperCase() + area.slice(1)}
+            </button>
+          ))}
         </div>
       </div>
 
       {/* Massage Controls */}
-      <div className="mt-6 space-y-4">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="mt-8 space-y-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          {/* Start/Pause Massage Button */}
           <button
             onClick={toggleMassage}
-            className="flex items-center space-x-2 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-all"
+            className="flex items-center space-x-3 bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-all text-lg"
           >
-            {isMassaging ? <PauseCircle className="w-5 h-5" /> : <PlayCircle className="w-5 h-5" />}
+            {isMassaging ? <PauseCircle className="w-6 h-6" /> : <PlayCircle className="w-6 h-6" />}
             <span>{isMassaging ? 'Pause Massage' : 'Start Massage'}</span>
           </button>
 
+          {/* Apply Serum Button */}
           <button
             onClick={applySerum}
             disabled={serumApplied}
-            className="flex items-center space-x-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 disabled:bg-gray-400"
+            className="flex items-center space-x-3 bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 disabled:bg-gray-400 transition-all text-lg"
           >
-            <DropletIcon className="w-5 h-5" />
+            <DropletIcon className="w-6 h-6" />
             <span>{serumApplied ? 'Serum Applied' : 'Apply Serum'}</span>
           </button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <div className="space-y-2">
-            <label className="text-sm text-gray-600">Massage Type</label>
+        {/* Form Controls for Customization */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {/* Massage Type Selection */}
+          <div className="space-y-3">
+            <label className="text-lg font-medium text-gray-700">Massage Type</label>
             <select
               value={massageType}
               onChange={(e) => setMassageType(e.target.value)}
-              className="w-full p-2 border border-gray-300 rounded-lg"
+              className="w-full p-3 border border-gray-300 rounded-lg text-lg"
             >
               <option value="circular">Circular</option>
               <option value="kneading">Kneading</option>
@@ -387,22 +363,24 @@ const App = () => {
             </select>
           </div>
 
-          <div className="space-y-2">
-            <label className="text-sm text-gray-600">Massage Time (mins)</label>
+          {/* Massage Time Input */}
+          <div className="space-y-3">
+            <label className="text-lg font-medium text-gray-700">Massage Time (mins)</label>
             <input
               type="number"
               value={massageTime}
               onChange={(e) => setMassageTime(Number(e.target.value))}
-              className="w-full p-2 border border-gray-300 rounded-lg"
+              className="w-full p-3 border border-gray-300 rounded-lg text-lg"
             />
           </div>
 
-          <div className="space-y-2">
-            <label className="text-sm text-gray-600">Target Area</label>
+          {/* Target Area Selection */}
+          <div className="space-y-3">
+            <label className="text-lg font-medium text-gray-700">Target Area</label>
             <select
               value={targetArea}
               onChange={(e) => setTargetArea(e.target.value)}
-              className="w-full p-2 border border-gray-300 rounded-lg"
+              className="w-full p-3 border border-gray-300 rounded-lg text-lg"
             >
               <option value="full">Full Scalp</option>
               <option value="front">Front</option>
@@ -416,6 +394,7 @@ const App = () => {
     </CardContent>
   </Card>
 )}
+
 
 
           {activeTab === 'scan' && (
