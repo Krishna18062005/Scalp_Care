@@ -243,7 +243,7 @@ const App = () => {
                   <li>Wireless & Rechargeable (6-8 hrs battery)</li>
                   <li>Customizable Massage & Intensity Settings</li>
                   <li>AI-Powered Hair Health Check-up</li>
-                  <li>Smart Temperature Control</li>
+                  
                   <li>Scalp Mapping with AI</li>
                   <li>Eco-Friendly & Sustainable Materials</li>
                 </ul>
