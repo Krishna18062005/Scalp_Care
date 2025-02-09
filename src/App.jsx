@@ -38,7 +38,7 @@ const App = () => {
   const [cartCount] = useState(0);
   const [isMassaging, setIsMassaging] = useState(false);
   const [massageType, setMassageType] = useState('circular');
-  const [temperature, setTemperature] = useState(35); // Default temperature in Celsius
+ 
   const [serumApplied, setSerumApplied] = useState(false);
   const [massageTime, setMassageTime] = useState(10); // Default massage time in minutes
   const [targetArea, setTargetArea] = useState('full'); // Default target area for massage
@@ -168,7 +168,7 @@ const App = () => {
       {/* Header */}
       <header className="bg-white shadow-sm sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-indigo-600">SmartHair™</h1>
+          <h1 className="text-2xl font-bold text-indigo-600">ScalpFelix</h1>
           <div className="flex items-center space-x-4">
             <button className="p-2 rounded-full hover:bg-gray-100 relative">
               <ShoppingBag className="w-6 h-6 text-gray-600" />
@@ -215,7 +215,7 @@ const App = () => {
         </div>
 
         {/* Dashboard Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-6">
           {/* Scan Card */}
           {activeTab === 'dashboard' && (
             <Card>
@@ -293,103 +293,131 @@ const App = () => {
               </CardContent>
             </Card>
           )}
+
 {activeTab === 'massager' && (
-  <div className="w-full flex justify-center">
-    <Card className="w-full max-w-[1400px] min-h-[800px] p-8 shadow-xl bg-white">
-      <CardHeader>
-        <CardTitle className="text-3xl font-bold">3D Scalp Massager</CardTitle>
-      </CardHeader>
-      <CardContent>
-        {/* Scalp Image with Interactive Overlays */}
-        <div className="w-full h-[750px] bg-gray-100 rounded-lg shadow-md relative flex items-center justify-center">
-          <img
-            src="/scalp.png"
-            alt="Scalp"
-            className="w-full h-full object-cover rounded-lg"
-          />
+  <Card>
+    <CardHeader>
+      <CardTitle>3D Scalp Massager</CardTitle>
+    </CardHeader>
+    <CardContent>
+      {/* Scalp Image with Interactive Overlays */}
+      <div className="w-full h-[500px] bg-gray-100 rounded-lg shadow-md relative">
+        <img
+          src="/scalp.png" // Path to your single scalp image
+          alt="Scalp"
+          className="w-full h-full object-cover rounded-lg"
+        />
 
-          {/* Overlay Buttons for Scalp Positions */}
-          <div className="absolute inset-0 grid grid-cols-4 gap-6 p-8">
-            {['front', 'back', 'left', 'right'].map((area) => (
-              <button
-                key={area}
-                onClick={() => setTargetArea(area)}
-                className={`w-20 h-20 rounded-full bg-indigo-600 text-white text-lg font-semibold flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-all ${
-                  targetArea === area ? 'ring-4 ring-indigo-500' : ''
-                }`}
-              >
-                {area.charAt(0).toUpperCase() + area.slice(1)}
-              </button>
-            ))}
-          </div>
+        {/* Overlay Buttons for Scalp Positions */}
+        <div className="absolute inset-0 flex flex-col justify-between p-4">
+          {/* Top (Front) */}
+          <button
+            onClick={() => setTargetArea('front')}
+            className={`w-12 h-12 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-all ${
+              targetArea === 'front' ? 'ring-2 ring-offset-2 ring-indigo-500' : ''
+            }`}
+          >
+            Front
+          </button>
+
+          {/* Bottom (Back) */}
+          <button
+            onClick={() => setTargetArea('back')}
+            className={`w-12 h-12 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-all ${
+              targetArea === 'back' ? 'ring-2 ring-offset-2 ring-indigo-500' : ''
+            }`}
+          >
+            Back
+          </button>
+
+          {/* Left */}
+          <button
+            onClick={() => setTargetArea('left')}
+            className={`w-12 h-12 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-all ${
+              targetArea === 'left' ? 'ring-2 ring-offset-2 ring-indigo-500' : ''
+            }`}
+          >
+            Left
+          </button>
+
+          {/* Right */}
+          <button
+            onClick={() => setTargetArea('right')}
+            className={`w-12 h-12 rounded-full bg-indigo-600 text-white flex items-center justify-center shadow-lg hover:bg-indigo-700 transition-all ${
+              targetArea === 'right' ? 'ring-2 ring-offset-2 ring-indigo-500' : ''
+            }`}
+          >
+            Right
+          </button>
+        </div>
+      </div>
+
+      {/* Massage Controls */}
+      <div className="mt-6 space-y-4">
+        <div className="flex items-center justify-between">
+          <button
+            onClick={toggleMassage}
+            className="flex items-center space-x-2 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700"
+          >
+            {isMassaging ? <PauseCircle className="w-5 h-5" /> : <PlayCircle className="w-5 h-5" />}
+            <span>{isMassaging ? 'Pause Massage' : 'Start Massage'}</span>
+          </button>
+
+          <button
+            onClick={applySerum}
+            disabled={serumApplied}
+            className="flex items-center space-x-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 disabled:bg-gray-400"
+          >
+            <DropletIcon className="w-5 h-5" />
+            <span>{serumApplied ? 'Serum Applied' : 'Apply Serum'}</span>
+          </button>
         </div>
 
-        {/* Massage Controls */}
-        <div className="mt-8 space-y-6">
-          <div className="flex flex-wrap items-center justify-between gap-6">
-            <button
-              onClick={toggleMassage}
-              className="flex items-center space-x-3 bg-indigo-600 text-white px-8 py-4 rounded-lg hover:bg-indigo-700 text-lg"
+        <div className="grid grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <label className="text-sm text-gray-600">Massage Type</label>
+            <select
+              value={massageType}
+              onChange={(e) => setMassageType(e.target.value)}
+              className="w-full p-2 border border-gray-300 rounded-lg"
             >
-              {isMassaging ? <PauseCircle className="w-6 h-6" /> : <PlayCircle className="w-6 h-6" />}
-              <span className="text-xl">{isMassaging ? 'Pause Massage' : 'Start Massage'}</span>
-            </button>
-
-            <button
-              onClick={applySerum}
-              disabled={serumApplied}
-              className="flex items-center space-x-3 bg-green-600 text-white px-8 py-4 rounded-lg hover:bg-green-700 disabled:bg-gray-400 text-lg"
-            >
-              <DropletIcon className="w-6 h-6" />
-              <span className="text-xl">{serumApplied ? 'Serum Applied' : 'Apply Serum'}</span>
-            </button>
+              <option value="circular">Circular</option>
+              <option value="kneading">Kneading</option>
+              <option value="tapping">Tapping</option>
+            </select>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            <div className="space-y-3">
-              <label className="text-xl text-gray-600">Massage Type</label>
-              <select
-                value={massageType}
-                onChange={(e) => setMassageType(e.target.value)}
-                className="w-full p-4 border border-gray-300 rounded-lg text-lg"
-              >
-                <option value="circular">Circular</option>
-                <option value="kneading">Kneading</option>
-                <option value="tapping">Tapping</option>
-              </select>
-            </div>
+         
 
-            <div className="space-y-3">
-              <label className="text-xl text-gray-600">Massage Time (mins)</label>
-              <input
-                type="number"
-                value={massageTime}
-                onChange={(e) => setMassageTime(Number(e.target.value))}
-                className="w-full p-4 border border-gray-300 rounded-lg text-lg"
-              />
-            </div>
+          <div className="space-y-2">
+            <label className="text-sm text-gray-600">Massage Time (mins)</label>
+            <input
+              type="number"
+              value={massageTime}
+              onChange={(e) => setMassageTime(Number(e.target.value))}
+              className="w-full p-2 border border-gray-300 rounded-lg"
+            />
+          </div>
 
-            <div className="space-y-3">
-              <label className="text-xl text-gray-600">Target Area</label>
-              <select
-                value={targetArea}
-                onChange={(e) => setTargetArea(e.target.value)}
-                className="w-full p-4 border border-gray-300 rounded-lg text-lg"
-              >
-                <option value="full">Full Scalp</option>
-                <option value="front">Front</option>
-                <option value="back">Back</option>
-                <option value="left">Left</option>
-                <option value="right">Right</option>
-              </select>
-            </div>
+          <div className="space-y-2">
+            <label className="text-sm text-gray-600">Target Area</label>
+            <select
+              value={targetArea}
+              onChange={(e) => setTargetArea(e.target.value)}
+              className="w-full p-2 border border-gray-300 rounded-lg"
+            >
+              <option value="full">Full Scalp</option>
+              <option value="front">Front</option>
+              <option value="back">Back</option>
+              <option value="left">Left</option>
+              <option value="right">Right</option>
+            </select>
           </div>
         </div>
-      </CardContent>
-    </Card>
-  </div>
+      </div>
+    </CardContent>
+  </Card>
 )}
-
 
           {activeTab === 'scan' && (
             <Card className="col-span-full">
