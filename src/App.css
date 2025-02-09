@@ -29,60 +29,104 @@
   transform: translateY(-100%);
 }
 
+/* Default styles remain the same */
 
-/* General styles for small screens (default mobile-first approach) */
-
-/* Tablets (Portrait and Landscape) */
-@media screen and (min-width: 600px) {
-  .dashboard-container {
-    width: 80%;
-    margin: auto;
-    padding: 20px;
-  }
-  
-  .scalper-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .scalper-item {
-    width: 45%;
-    margin: 10px;
-  }
-}
-
-/* Small Laptops */
+/* Adjust layout for tablets and larger screens */
 @media screen and (min-width: 768px) {
-  .dashboard-container {
-    width: 70%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+  .scalp-massager-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
     gap: 20px;
   }
 
-  .scalper-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .scalper-item {
-    width: 30%;
+  .scalp-massager-content {
+    flex: 1;
+    padding: 20px;
   }
 }
 
-/* Larger Screens (Desktops) */
+/* Optimize for larger screens (laptops/desktops) */
+@media screen and (min-width: 1024px) {
+  .scalp-massager-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr; /* Sidebar (if any) takes 1 part, content takes 3 */
+  }
+
+  .scalp-massager-content {
+    max-width: 900px;
+  }
+}
+
+/* Ensure images scale properly */
+.scalp-massager-content img {
+  width: 100%;
+  height: auto;
+  max-width: 1000px;
+  display: block;
+  margin: auto;
+}
+
+/* Adjust positioning of labels (Front, Back, Left, Right) */
+.scalp-label {
+  position: absolute;
+  background: blue;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Specific positions for labels */
+.scalp-label.front { top: 10%; left: 20%; }
+.scalp-label.back { top: 50%; left: 20%; }
+.scalp-label.left { top: 70%; left: 10%; }
+.scalp-label.right { top: 80%; left: 60%; }
+
+
+/* Default mobile styles remain */
+
+/* Make the dashboard container take full width on larger screens */
+@media screen and (min-width: 768px) {
+  .dashboard-container {
+    width: 90%; /* Adjust width for better fit */
+    max-width: 1200px; /* Prevents excessive stretching */
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .dashboard-content {
+    flex: 1;
+    padding: 20px;
+  }
+}
+
+/* Ensure the sidebar and content align properly */
 @media screen and (min-width: 1024px) {
   .dashboard-container {
-    width: 60%;
-    grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    grid-template-columns: 1fr 3fr; /* Sidebar takes 1 part, content takes 3 */
+    gap: 20px;
   }
 
-  .scalper-container {
-    width: 80%;
-    margin: auto;
+  .sidebar {
+    min-width: 250px;
   }
 
-  .scalper-item {
-    width: 25%;
+  .dashboard-content {
+    max-width: 900px;
+  }
+}
+
+/* Fix navigation tab spacing */
+@media screen and (min-width: 1280px) {
+  .nav-tabs {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
   }
 }
