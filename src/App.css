@@ -28,48 +28,129 @@
 .notification.hidden {
   transform: translateY(-100%);
 }
+/* Default Mobile View */
+.dashboard-container {
+  width: 95%;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-/* Default styles remain the same */
+/* Dashboard Tabs */
+.dashboard-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #ccc;
+}
 
-/* Adjust layout for tablets and larger screens */
+.tab {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px 15px;
+}
+
+.tab.active {
+  border-bottom: 2px solid blue;
+  font-weight: bold;
+}
+
+/* Dashboard Content */
+.dashboard-content {
+  background: #f8f8f8;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.dashboard-content ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+/* Responsive for Laptops & Desktops */
 @media screen and (min-width: 768px) {
-  .scalp-massager-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
+  .dashboard-container {
+    max-width: 800px;
+    padding: 30px;
+  }
+
+  .dashboard-tabs {
+    justify-content: flex-start;
     gap: 20px;
   }
 
-  .scalp-massager-content {
-    flex: 1;
-    padding: 20px;
+  .tab {
+    font-size: 18px;
+  }
+
+  .dashboard-content {
+    padding: 30px;
   }
 }
 
-/* Optimize for larger screens (laptops/desktops) */
+/* Large Screens (Laptops & Desktops) */
 @media screen and (min-width: 1024px) {
-  .scalp-massager-container {
-    display: grid;
-    grid-template-columns: 1fr 3fr; /* Sidebar (if any) takes 1 part, content takes 3 */
+  .dashboard-container {
+    max-width: 1000px;
   }
 
-  .scalp-massager-content {
-    max-width: 900px;
+  .dashboard-content {
+    font-size: 18px;
   }
 }
 
-/* Ensure images scale properly */
-.scalp-massager-content img {
+/* Default Mobile View */
+.scalp-massager-container {
+  width: 95%;
+  margin: auto;
+  text-align: center;
+}
+
+/* Make it a flexbox layout for larger screens */
+@media screen and (min-width: 768px) {
+  .scalp-massager-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .scalp-image-wrapper {
+    flex: 1;
+    position: relative;
+  }
+
+  .scalp-massager-info {
+    flex: 1;
+    text-align: left;
+  }
+}
+
+/* Large Screens (Laptops & Desktops) */
+@media screen and (min-width: 1024px) {
+  .scalp-massager-content {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+/* Image Styling */
+.scalp-image-wrapper img {
   width: 100%;
   height: auto;
-  max-width: 1000px;
+  max-width: 600px;
   display: block;
   margin: auto;
 }
 
-/* Adjust positioning of labels (Front, Back, Left, Right) */
+/* Scalp Labels */
 .scalp-label {
   position: absolute;
   background: blue;
@@ -80,53 +161,8 @@
   text-align: center;
 }
 
-/* Specific positions for labels */
+/* Position Adjustments */
 .scalp-label.front { top: 10%; left: 20%; }
 .scalp-label.back { top: 50%; left: 20%; }
 .scalp-label.left { top: 70%; left: 10%; }
 .scalp-label.right { top: 80%; left: 60%; }
-
-
-/* Default mobile styles remain */
-
-/* Make the dashboard container take full width on larger screens */
-@media screen and (min-width: 768px) {
-  .dashboard-container {
-    width: 90%; /* Adjust width for better fit */
-    max-width: 1200px; /* Prevents excessive stretching */
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .dashboard-content {
-    flex: 1;
-    padding: 20px;
-  }
-}
-
-/* Ensure the sidebar and content align properly */
-@media screen and (min-width: 1024px) {
-  .dashboard-container {
-    display: grid;
-    grid-template-columns: 1fr 3fr; /* Sidebar takes 1 part, content takes 3 */
-    gap: 20px;
-  }
-
-  .sidebar {
-    min-width: 250px;
-  }
-
-  .dashboard-content {
-    max-width: 900px;
-  }
-}
-
-/* Fix navigation tab spacing */
-@media screen and (min-width: 1280px) {
-  .nav-tabs {
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-  }
-}
