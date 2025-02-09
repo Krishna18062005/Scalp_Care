@@ -387,7 +387,7 @@ const App = () => {
             </select>
           </div>
 
-          <div className="space-y-2">
+{/*           <div className="space-y-2">
             <label className="text-sm text-gray-600">Temperature (°C)</label>
             <input
               type="number"
@@ -395,7 +395,7 @@ const App = () => {
               onChange={(e) => setTemperature(Number(e.target.value))}
               className="w-full p-2 border border-gray-300 rounded-lg"
             />
-          </div>
+          </div> */}
 
           <div className="space-y-2">
             <label className="text-sm text-gray-600">Massage Time (mins)</label>
