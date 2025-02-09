@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+.progress-circle {
+  transform: rotate(-90deg);
+}
+
+.progress-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  fill: theme('colors.indigo.600');
+}
+
+.notification {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: theme('colors.green.500');
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.notification.hidden {
+  transform: translateY(-100%);
+}
