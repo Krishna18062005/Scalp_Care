@@ -300,7 +300,7 @@ const App = () => {
       <CardTitle>3D Scalp Massager</CardTitle>
     </CardHeader>
     <CardContent>
-      {/* Scalp Image with Interactive Overlays */}
+{/*       {/* Scalp Image with Interactive Overlays */}
       <div className="w-full h-[500px] bg-gray-100 rounded-lg shadow-md relative">
         <img
           src="/scalp.png" // Path to your single scalp image
@@ -422,7 +422,35 @@ const App = () => {
             </select>
           </div>
         </div>
+      </div> */}
+
+
+ <div className="scalp-massager-container">
+      <h2>3D Scalp Massager</h2>
+      
+      <div className="scalp-massager-content">
+        <div className="scalp-image-wrapper">
+          <img src="your-image-path.png" alt="Scalp Massager Diagram" />
+          
+          {/* Scalp Section Labels */}
+          <span className="scalp-label front">Front</span>
+          <span className="scalp-label back">Back</span>
+          <span className="scalp-label left">Left</span>
+          <span className="scalp-label right">Right</span>
+        </div>
+        
+        <div className="scalp-massager-info">
+          <h3>How It Works</h3>
+          <p>
+            The 3D Scalp Massager uses smart AI sensors to map your scalp, ensuring a 
+            deep and relaxing massage. It targets different pressure points for maximum 
+            relaxation.
+          </p>
+        </div>
       </div>
+    </div>
+
+      
     </CardContent>
   </Card>
 )}
