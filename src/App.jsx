@@ -196,7 +196,7 @@ const App = () => {
           {[
             { id: 'dashboard', icon: Activity, label: 'Dashboard' },
             { id: 'scan', icon: Clock, label: 'Daily Scan' },
-            { id: 'massager', icon: Award, label: '2D Massager' },
+            { id: 'massager', icon: Award, label: '3D Massager' },
           ].map((tab) => (
             <button
               key={tab.id}
