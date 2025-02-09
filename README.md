@@ -23,9 +23,6 @@ This project is a next-generation **AI-powered wearable men's hair care device**
 - ✅ **Customizable Massage & Intensity Settings**:
   - Pre-set modes: **Deep tissue, kneading, vibration, tapping**.
   - Adjustable intensity levels based on user preference.
-- ✅ **Smart Temperature Control**:
-  - **Cool Mode**: Soothes sensitive scalp & reduces irritation.
-  - **Warm Mode**: Boosts blood circulation & enhances serum absorption.
 - ✅ **Auto-Timer & Sleep Mode**: Users can schedule massage sessions before sleeping.
 
 ### 3. **Software & AI Smart Features**
