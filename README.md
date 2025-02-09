@@ -102,9 +102,9 @@ This project is a next-generation **AI-powered wearable men's hair care device**
 ---
 
 ## Contributors
-- **Your Name** - **Krishna K**, Lead Developer
-- **Team Member 1** - **Dhivya**  ,AI & ML Engineer
-- **Team Member 2** - **Akshaya T**, UI/UX Designer
+- **Krishna K**, Lead Developer
+- **Dhivya S**  ,AI & ML Engineer
+- **Akshaya T**, UI/UX Designer
 
 
 ---
