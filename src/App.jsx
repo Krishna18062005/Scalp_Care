@@ -297,7 +297,7 @@ const App = () => {
 {activeTab === 'massager' && (
   <Card>
     <CardHeader>
-      <CardTitle>2D Scalp Massager</CardTitle>
+      <CardTitle>3D Scalp Massager</CardTitle>
     </CardHeader>
     <CardContent>
       {/* Scalp Image with Interactive Overlays */}
