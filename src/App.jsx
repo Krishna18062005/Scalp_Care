@@ -79,7 +79,7 @@ const App = () => {
       applicationMode: 'Direct Contact',
       duration: '15 minutes',
       frequency: 'Daily',
-      temperature: 'Warm',
+     
       pressure: 'Medium',
     },
   };
