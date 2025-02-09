@@ -28,3 +28,77 @@
 .notification.hidden {
   transform: translateY(-100%);
 }
+
+/* Base styles (default for all screen sizes) */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Extra Small Devices (Phones) */
+@media (max-width: 480px) {
+  body {
+    background-color: lightgray;
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .nav {
+    flex-direction: column;
+  }
+}
+
+/* Small Devices (Tablets in Portrait Mode) */
+@media (min-width: 481px) and (max-width: 767px) {
+  body {
+    background-color: lightblue;
+    font-size: 16px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+}
+
+/* Medium Devices (Tablets in Landscape, Small Laptops) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  body {
+    background-color: lightgreen;
+    font-size: 18px;
+  }
+
+  .container {
+    max-width: 90%;
+    margin: auto;
+  }
+}
+
+/* Large Devices (Laptops, Desktops) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  body {
+    background-color: lightcoral;
+    font-size: 20px;
+  }
+
+  .container {
+    max-width: 80%;
+    margin: auto;
+  }
+}
+
+/* Extra Large Devices (Large Screens, TVs) */
+@media (min-width: 1441px) {
+  body {
+    background-color: lightgoldenrodyellow;
+    font-size: 22px;
+  }
+
+  .container {
+    max-width: 70%;
+    margin: auto;
+  }
+}
